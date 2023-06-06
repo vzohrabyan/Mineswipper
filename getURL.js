@@ -30,18 +30,17 @@ export async function delUser(users, user) {
       throw new Error(error)
   }
 }
-async function getUsers (data) {
+async function getUsers () {
     try {
         const response = await fetch(`${url}/users`, {
             method: "GET"
         });
-        if (data) {
-          data = await response.json();
-          window.localStorage.setItem("users", JSON.stringify(data));
+        if (JSON.parse(window.localStorage.getItem("users"))) {
           drawUsers()
         } else {
-          drawUsers();
-
+          const data = await response.json();
+          window.localStorage.setItem("users", JSON.stringify(data));
+          drawUsers()
         }
     } catch (error) {
       throw new Error(error)
