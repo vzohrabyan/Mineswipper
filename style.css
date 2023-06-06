@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* body {
+    background-color: rgb(7, 7, 67);
+} */
+
+#id {
+    max-width: 1100px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
+}
+
+input {
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: 1px solid #000;
+}
+
+input:focus {
+    outline: none;
+}
+
+.warning {
+    font-size: smaller;
+    position: absolute;
+    margin-left: 10px;
+    color: red;
+    display: none;
+    left: 20px;
+    bottom: 0;
+}
+
+.not-found {
+    font-size: 32px;
+    margin-left: 50px;
+    display: none;
+}
+
+.search img{
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.reload {
+    margin-left: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+.reload img{
+    width: 25px;
+    height: 25px;
+}
+
+.users {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.user {
+    margin: 15px 25px;
+    position: relative;
+    width: 300px;
+    height: 420px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.front-part, .back-part {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    position: absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: 1s;
+    transform-style: preserve-3d;
+    transform-origin: center;
+}
+
+.contents {
+    border-radius: 20px;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    transform-style: preserve-3d;
+}
+
+.back-part .contents{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0px 20px;
+}
+
+.delete-button {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.delete-button img {
+    width: 10px;
+    height: 10px;
+}
+
+h1, h4, .picture {
+    text-align: center;
+    transform: translateZ(50px);
+}
+
+.picture {
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+}
+
+.picture img {
+    width: 100px;
+    height: 100px;
+}
+
+form {
+    padding: 50px;
+    background-color: #4f5b77;
+    border-radius: 20px;
+    margin: 20px;
+    text-align: center;
+    margin: 0px 50px;
+}
+
+form p {
+    font-size: 52px;
+    color: #adbde2;
+    font-weight: 600;
+}
+
+h2 {
+    color: #adbde2;
+}
+
+form button {
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #adbde2;
+    font-size: 32px;
+    font-weight: 800;
+    color: #174348;
+    cursor: pointer;
+}
+
+form input {
+    margin: 15px 5px;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.contacts-info div{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.contacts-info img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+
+
+a {
+    color: #000;
+}
+
+.address-info,.contacts-info,.company-info {
+    width: 100%;
+}
+
+.address-info p,.company-info p{
+    margin-left: 10px;
+}
+
+.user .back-part {
+    transform: rotateY(180deg);
+}
+
+.user:hover .back-part{
+    transform: rotateY(0);
+}
+
+.user:hover .front-part{
+    transform: rotateY(-180deg);
+}
+
+.missed-place p{
+    color: rgb(206, 84, 84) !important;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.loading, .delete {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(16, 24, 32, 0.7) !important
+}
+
+.loading-modal, .delete-modal {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+    padding: 50px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: #174348 solid 1px; 
+}
+
+.confirm-buttons div {
+    color: #4f5b77;
+    font-weight: 900;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.confirm-buttons {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loading-circle {
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+  }
+  .loading-circle:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid rgb(158, 222, 222);
+    border-color: rgb(158, 222, 222) transparent rgb(158, 222, 222) transparent;
+    animation: loading-circle 1.2s linear infinite;
+  }
+  .success img {
+    margin-top: 15px;
+    width: 62px;
+    height: 62px;
+  }
+  .success {
+    animation-duration:  6s;
+    animation-name: success;
+    position: absolute;
+    padding: 25px;
+    padding-top: 30px;
+}
+.response {
+    animation-name: response;
+    animation-duration:  6s;
+    position: absolute;
+}
+
+@keyframes response {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      }
+  }
+  @keyframes success {
+    0% {
+        opacity: 0;
+      }
+    50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+    }
+  }
+  @keyframes loading-circle {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+.card-1 {
+    background-color: rgb(191, 158, 222);
+}
+.card-2 {
+    background-color: rgb(158, 171, 222);
+}
+.card-3 {
+    background-color: rgb(222, 211, 158);
+}
+.card-4 {
+    background-color: rgb(158, 222, 222);
+}
+.card-5 {
+    background-color: rgb(199, 168, 144);
+}
+.card-6 {
+    background-color: rgb(222, 158, 194);
+}
+.card-7 {
+    background-color: rgb(163, 158, 222);
+}
+.card-8 {
+    background-color: rgb(227, 135, 135);
+}
+.card-9 {
+    background-color: rgb(217, 190, 243);
+}
+.card-10 {
+    background-color: rgb(222, 158, 158);
+}
