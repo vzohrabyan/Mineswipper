@@ -4,66 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users Info</title>
-    <script src="./drawUsers.js" type="module" defer></script>
-    <script src="./seachUsers.js" type="module" defer></script>
-    <script src="./getURL.js" type="module" defer></script>
-    <script src="./addUsers.js" type="module" defer></script>
-    <script src="./deleteUser.js" type="module" defer></script>
-    <link rel="shortcut icon" href="./Assets/user (1).png">
+    <title>Minesweeper</title>
+    <script src="./script.js" defer></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./Assets/favicon.ico">
 </head>
 <body>
     <div id="root">
-        <h1>USERS INFO</h1>
-        <div class="search">
-            <input type="text" title="Write the UserName or Name of the wanted person" placeholder="Search" class="search-input">
-            <div class="search-button"><img src="./Assets/search-interface-symbol.png"></div>
-            <p class="warning">You have not written any letters</p>
+        <!-- <h1>MINESWEEPER</h1> -->
+        <div class="play">
+            <h1>Choose the difficulty of the game</h1>
+            <div onclick='minesweeper.main(10,8)'><p>Easy</p> <p>10x10 8 mines</p></div>
+            <div onclick='minesweeper.main(9, 10)'><p>Medium</p> <p>9x9 10 mines</p></div>
+            <div onclick='minesweeper.main(16, 40)'><p>Hard</p> <p>16x16 40 mines</p></div>
+            <div onclick='minesweeper.main(30, 180)'><p>Extreme</p> <p>30x30 180 mines</p></div>
+            <div onclick='minesweeper.main(20, 150)'><p>Custom</p> <p>20x20 150 mines</p></div>
+            <div onclick="minesweeper.recordInfo()">Record</div>
         </div>
-        <a class="reload" href="./index.html"><img src="./Assets/return.png"></a>
-        <div class="not-found">We do not have such a user</div>
-        <div class="users">
-        </div>
-        <form>
-            <p>Add your</p>
-            <input type="text" placeholder="Name">
-            <input type="text" placeholder="UserName">
-            <h2>Address</h2>
-            <input id="address" type="text" placeholder="City">
-            <input id="address" type="text" placeholder="Street">
-            <input id="address" type="text" placeholder="Suite">
-            <h2>Company</h2>
-            <input id="company" type="text" placeholder="Name">
-            <input id="company" type="text" placeholder="Catch Phrase">
-            <input id="company" type="text" placeholder="BS">
-            <h2>Contacts</h2>
-            <input type="email" placeholder="Email" >
-            <input type="number" placeholder="Phone">
-            <input type="text" placeholder="Website">
-            <div class="missed-place"></div>
-            <button class="add-button">Send</button>
-        </form>
-        <div class="loading">
-            <div class="loading-modal">
-                <div class="response">
-                    <div class="loading-circle"></div>
-                    <p>Please wait, it will take a few seconds</p>
+        <div class="box">
+            <div class="header">
+                <div class="instruction">
+                    <p>left click to open the field</p>
+                    <p>right click to mark the field</p>
+                    <span>press <div class="restart">R</div> to restart your game</span>
                 </div>
-                <div class="success">
-                    <img src="./Assets/free-icon-check-mark-5299035.png">
-                    <p>Your request has been sent, if everything goes well, it will be posted</p>
+                <div class="result">
+                    <div class="play-modal">
+                        <span class="minute">00</span>
+                        <span>:</span>
+                        <span class="second">00</span>
+                    </div>
+                    <div class="lose-modal">You Lose</div>
+                    <div class="win-modal">You Win</div>
+                    <div class="record-modal">New Record</div>
                 </div>
             </div>
-        </div>
-        <div class="delete">
-            <div class="delete-modal">
-                <p>Are you sure you want to delete?</p>
-                <div class="confirm-buttons">
-                    <div class="yes-button">Yes</div>
-                    <div class="no-button">No</div></div>
+            <nav></nav>
+            <div class="playing-board">
+                <div class="board">
+                </div>
+                <div class="board-modal">
+                    <a href="./index.html" class="again">Try Again</a>
+                    <a href="./index.html" class="won">Congratulations you win!</a>
+                    <div class="record"></div>
+                </div>
             </div>
+            
         </div>
+        
     </div>
 </body>
 </html>
