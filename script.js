@@ -181,7 +181,7 @@ class Minesweeper {
       
         const remainingFields = document.querySelectorAll('.default:not([style*="display: none"])');
       
-        if (remainingFields.length === document.querySelectorAll('.field img[src="./Assets/favicon.ico"]').length) {
+        if (remainingFields.length === document.querySelectorAll('.field img[src="./Assets/favicon.ico"]').length || document.querySelectorAll(".mark").length === document.querySelectorAll('.field img[src="./Assets/favicon.ico"]').length) {
             document.querySelector(".play-modal").style.display = "none";
             document.querySelector(".win-modal").style.display = "block";
             this.dropFields();
